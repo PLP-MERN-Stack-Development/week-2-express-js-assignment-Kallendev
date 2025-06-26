@@ -1,63 +1,137 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19741792&assignment_repo_type=AssignmentRepo)
-# Express.js RESTful API Assignment
+# 🚂 Product API – Week 2 Express.js Assignment
 
-This assignment focuses on building a RESTful API using Express.js, implementing proper routing, middleware, and error handling.
+This is a RESTful API built using **Express.js**. It supports standard **CRUD operations**, custom **middleware**, **error handling**, and **advanced features** like filtering, pagination, and search – all done using **in-memory data (no database)**.
 
-## Assignment Overview
+---
 
-You will:
-1. Set up an Express.js server
-2. Create RESTful API routes for a product resource
-3. Implement custom middleware for logging, authentication, and validation
-4. Add comprehensive error handling
-5. Develop advanced features like filtering, pagination, and search
+## 📦 Setup Instructions
 
-## Getting Started
-
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install dependencies:
-   ```
-   npm install
-   ```
-4. Run the server:
-   ```
-   npm start
-   ```
-
-## Files Included
-
-- `Week2-Assignment.md`: Detailed assignment instructions
-- `server.js`: Starter Express.js server file
-- `.env.example`: Example environment variables file
-
-## Requirements
+### 🔧 Prerequisites
 
 - Node.js (v18 or higher)
-- npm or yarn
-- Postman, Insomnia, or curl for API testing
 
-## API Endpoints
+### 💾 Install dependencies
 
-The API will have the following endpoints:
+```bash
+npm install
+```
 
-- `GET /api/products`: Get all products
-- `GET /api/products/:id`: Get a specific product
-- `POST /api/products`: Create a new product
-- `PUT /api/products/:id`: Update a product
-- `DELETE /api/products/:id`: Delete a product
+### 🚀 Run the server
 
-## Submission
+```bash
+node server.js
+```
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+Server will start at:
+`http://localhost:3000`
 
-1. Complete all the required API endpoints
-2. Implement the middleware and error handling
-3. Document your API in the README.md
-4. Include examples of requests and responses
+---
 
-## Resources
+## 🔐 API Key Required
 
-- [Express.js Documentation](https://expressjs.com/)
-- [RESTful API Design Best Practices](https://restfulapi.net/)
-- [HTTP Status Codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) 
+All API requests must include the following header:
+
+```
+x-api-key: my-secret-key
+```
+
+---
+
+## 🧪 Sample Data
+
+The app uses an in-memory array with sample products like laptops, smartphones, and kitchen items.
+
+---
+
+## 📂 API Endpoints
+
+### 📘 Products
+
+| Method | Endpoint            | Description          |
+| ------ | ------------------- | -------------------- |
+| GET    | `/api/products`     | List all products    |
+| GET    | `/api/products/:id` | Get product by ID    |
+| POST   | `/api/products`     | Create a new product |
+| PUT    | `/api/products/:id` | Update a product     |
+| DELETE | `/api/products/:id` | Delete a product     |
+
+---
+
+### 🔎 Advanced Features
+
+| Feature            | Endpoint                             | Example |
+| ------------------ | ------------------------------------ | ------- |
+| Filter by category | `/api/products?category=electronics` |         |
+| Pagination         | `/api/products?page=1&limit=2`       |         |
+| Search by name     | `/api/search?name=coffee`            |         |
+| Stats by category  | `/api/products/stats`                |         |
+
+---
+
+## 🧪 Example POST Request
+
+**Endpoint:** `POST /api/products`
+**Headers:**
+
+```
+Content-Type: application/json
+x-api-key: my-secret-key
+```
+
+**Body:**
+
+```json
+{
+  "name": "Washing Machine",
+  "description": "Automatic front load",
+  "price": 400,
+  "category": "home",
+  "inStock": true
+}
+```
+
+---
+
+## ⚠️ Errors & Status Codes
+
+| Error            | Status | Description                |
+| ---------------- | ------ | -------------------------- |
+| Not Found        | 404    | Product not found          |
+| Validation Error | 400    | Missing fields             |
+| Unauthorized     | 401    | Missing or invalid API key |
+| Server Error     | 500    | Something went wrong       |
+
+---
+
+## 📁 Files in this Repo
+
+| File           | Description                                   |
+| -------------- | --------------------------------------------- |
+| `server.js`    | Main API server                               |
+| `README.md`    | This file                                     |
+| `.env.example` | Example environment variables (API key, port) |
+
+---
+
+## 👩‍💻 Author
+
+\*\*Kallen – Web Developer
+
+---
+
+Happy Coding! ✨
+
+````
+
+---
+
+### ✅ BONUS: Add `.env.example`
+
+Create a file called `.env.example` and add this:
+
+```env
+PORT=3000
+API_KEY=my-secret-key
+````
+
+---
